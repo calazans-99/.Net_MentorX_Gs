@@ -1,0 +1,18 @@
+
+Full enhancements applied:
+- DTO classes created for entities: Mentor, Mentorado, Questionario, PlanoMentoria, TarefaMentoria
+- AutoMapper MappingProfile created at Services/Mappings/MappingProfile.cs
+- Service implementations scaffolded in Services/Implementations (basic methods)
+- Controllers updated to use repositories, DTOs, pagination and simple HATEOAS links
+- Repository interfaces and implementations exist in Repositories/
+- PagedResult helper ensured in Common/PagedResult.cs
+- csproj updated to include AutoMapper packages
+- Program.cs updated to register AutoMapper and repositories
+
+You should now:
+1) Open solution in Visual Studio.
+2) Run 'dotnet restore' to restore NuGet packages.
+3) Configure 'DefaultConnection' in appsettings.json for SQL Server.
+4) Run EF Migrations: 'dotnet ef migrations add InitialCreate' and 'dotnet ef database update'
+5) Run the app and test endpoints at /api/v1/...
+

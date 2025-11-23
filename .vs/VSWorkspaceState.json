@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\Mentorax.Api",
+    "\\src\\Mentorax.Api\\Controllers",
+    "\\src\\Mentorax.Api\\Repositories",
+    "\\src\\Mentorax.Api\\Repositories\\Implementations",
+    "\\src\\Mentorax.Api\\Services",
+    "\\src\\Mentorax.Api\\Services\\Interfaces"
+  ],
+  "SelectedNode": "\\src\\Mentorax.Api\\Repositories\\Implementations\\TarefaMentoriaRepository.cs",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,15 @@
+C:\Users\Felipe Ramon\Downloads\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\Mentorax.Api.csproj.AssemblyReference.cache
+C:\Users\Felipe Ramon\Downloads\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\Mentorax.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Felipe Ramon\Downloads\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\Mentorax.Api.AssemblyInfoInputs.cache
+C:\Users\Felipe Ramon\Downloads\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\Mentorax.Api.AssemblyInfo.cs
+C:\Users\Felipe Ramon\Downloads\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\Mentorax.Api.csproj.CoreCompileInputs.cache
+C:\Users\Felipe Ramon\Downloads\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\Mentorax.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Felipe Ramon\Downloads\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\Mentorax.Api.MvcApplicationPartsAssemblyInfo.cache
+D:\.net\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\Mentorax.Api.csproj.AssemblyReference.cache
+D:\.net\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\rpswa.dswa.cache.json
+D:\.net\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\Mentorax.Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\.net\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\Mentorax.Api.AssemblyInfoInputs.cache
+D:\.net\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\Mentorax.Api.AssemblyInfo.cs
+D:\.net\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\Mentorax.Api.csproj.CoreCompileInputs.cache
+D:\.net\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\Mentorax.Api.MvcApplicationPartsAssemblyInfo.cs
+D:\.net\Mentorax_final_fixed_modified\src\Mentorax.Api\obj\Debug\net7.0\Mentorax.Api.MvcApplicationPartsAssemblyInfo.cache

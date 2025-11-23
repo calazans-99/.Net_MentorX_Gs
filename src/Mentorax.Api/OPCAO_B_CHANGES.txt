@@ -1,0 +1,15 @@
+OPÇÃO B applied: structure reorganized and enhancements added.
+
+Project folder: /mnt/data/mentorax_opcao_b_build/src/Mentorax.Api
+
+Changes:
+- Created Repositories/Interfaces and Repositories/Implementations for entities: Mentor, Mentorado, Questionario, PlanoMentoria, TarefaMentoria
+- Moved Middleware -> Security (Security/Interfaces, Security/Implementations)
+- Moved Common -> Core (Core/Pagination, Core/HATEOAS)
+- Added LinkBuilder.cs in Core/HATEOAS
+- Updated Services files with TODO comments to refactor to repository usage
+- Registered repository and service DI in Program.cs
+
+Notes:
+- Please run 'dotnet restore' and 'dotnet build' after opening the solution in Visual Studio.
+- Run EF Migrations with 'dotnet ef migrations add InitialCreate' and 'dotnet ef database update' if using SQL Server.

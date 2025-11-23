@@ -1,0 +1,79 @@
+using Microsoft.AspNetCore.Mvc;
+using Mentorax.Api.Models;
+using Mentorax.Api.Services.Interfaces;
+using Mentorax.Api.Data;
+using Microsoft.EntityFrameworkCore;
+
+namespace Mentorax.Api.Controllers
+{
+    [ApiController]
+    [Route("/api/v1/planosmentoria")]
+    public class PlanosMentoriaController : ControllerBase
+    {
+        private readonly IPlanoMentoriaService _service;
+        private readonly ApplicationDbContext _context;
+        private readonly ILogger<PlanosMentoriaController> _logger;
+        private readonly IAIClient _aiClient;
+        private readonly IPdfService _pdfService;
+
+        public PlanosMentoriaController(IPlanoMentoriaService service, ApplicationDbContext context, ILogger<PlanosMentoriaController> logger, IAIClient aiClient, IPdfService pdfService)
+        {
+            _service = service;
+            _context = context;
+            _logger = logger;
+            _aiClient = aiClient;
+            _pdfService = pdfService;
+        }
+
+        [HttpPost(""/generate"")]
+        public async Task<IActionResult> Gerar([FromBody] Questionario q)
+        {
+            if (q == null) return BadRequest();
+            var aiPrompt = await _aiClient.GeneratePlanPromptAsync(q);
+            var plan = await _service.GenerateFromQuestionarioAsync(q);
+            plan.Summary = plan.Summary + "\n\n[Prompt IA]: " + aiPrompt;
+            var result = new {
+                plan.Id, plan.Title, plan.Summary,
+                Links = new [] {
+                    new { rel = "self", href = Url.Action(nameof(ObterPorId), new { id = plan.Id }) },
+                    new { rel = "download", href = Url.Action(nameof(DownloadPdf), new { id = plan.Id }) }
+                }
+            };
+            return CreatedAtAction(nameof(ObterPorId), new { id = plan.Id }, result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Listar([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+        {
+            var items = await _service.GetPagedAsync(page, pageSize);
+            var total = await _context.PlanosMentoria.CountAsync();
+            var response = new { total, page, pageSize, items };
+            return Ok(response);
+        }
+
+        [HttpGet(""{id}"")]
+        public async Task<IActionResult> ObterPorId(Guid id)
+        {
+            var plan = await _service.GetByIdAsync(id);
+            if (plan == null) return NotFound();
+            return Ok(plan);
+        }
+
+        [HttpDelete(""{id}"")]
+        public async Task<IActionResult> Deletar(Guid id)
+        {
+            await _service.DeleteAsync(id);
+            return NoContent();
+        }
+
+        [HttpGet(""{id}/download"")]
+        public async Task<IActionResult> DownloadPdf(Guid id)
+        {
+            var plan = await _service.GetByIdAsync(id);
+            if (plan == null) return NotFound();
+            var html = $"<h1>{plan.Title}</h1><p>{plan.Summary}</p>";
+            var pdf = await _pdfService.GeneratePdfAsync(html);
+            return File(pdf, "application/pdf", $"plano_{plan.Id}.pdf");
+        }
+    }
+}
